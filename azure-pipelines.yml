@@ -8,6 +8,11 @@ trigger:
 pool:
   vmImage: 'ubuntu-latest' # other options: 'macOS-latest', 'windows-latest'
 steps:
+
+- task: DownloadPipelineArtifact@2
+  inputs:
+    buildType: 'current'
+    targetPath: '$(Pipeline.Workspace)'
 - task: JavaToolInstaller@0 
   inputs: 
     versionSpec: '17' 
