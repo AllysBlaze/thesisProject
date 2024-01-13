@@ -2,14 +2,23 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head lang="en">
     <meta charset="UTF-8"/>
-    <title>ReactJS + Spring Data REST</title>
-    <link rel="stylesheet" href="/main.css" />
+
+    <link rel="stylesheet" href="/main.css"/>
 </head>
 <body>
+<form method="GET" action="/employees">
+    <button type="submit" th:name="fromIndex" th:value="true">Zgłoszenie ilości</button>
+</form>
 
-<div id="react"></div>
-
-<script src="built/bundle.js"></script>
+<br>
+<br>
+<tr th:each="re: ${reportedExecutions}">
+    <td>
+        <form method="get" action="/reportedExecution">
+            <button type="submit" th:name="re" th:value="${re.id}" th:text="${re.toString()}"></button>
+        </form>
+    </td>
+</tr>
 
 </body>
 </html>

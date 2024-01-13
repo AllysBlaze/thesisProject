@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<tr th:each="employee: ${employees}">
+    <td>
+        <form method="GET" action="/machines">
+            <button type="submit" th:name="employee" th:value="${employee.id}" th:text="${employee.toString()}"></button>
+        </form>
+    </td>
+</tr>
+</body>
+</html>
