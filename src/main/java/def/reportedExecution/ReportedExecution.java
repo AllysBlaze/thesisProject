@@ -15,7 +15,7 @@ public class ReportedExecution {
     private Long id;
 
     @Column(name = "reported_execution_quantity")
-    private Float quantity;
+    private Double quantity;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "employee_id")
@@ -28,7 +28,7 @@ public class ReportedExecution {
     @Column(name = "reported_execution_date")
     private Date date;
 
-    public ReportedExecution(Float quantity, Employee employee, Machine machine) {
+    public ReportedExecution(Double quantity, Employee employee, Machine machine) {
         this.quantity = quantity;
         this.employee = employee;
         this.machine = machine;
@@ -42,7 +42,7 @@ public class ReportedExecution {
         return id;
     }
 
-    public Float getQuantity() {
+    public Double getQuantity() {
         return quantity;
     }
 

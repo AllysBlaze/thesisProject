@@ -66,7 +66,7 @@ public class Controller {
     @PostMapping("/quantity")
     public String postQuantity(@RequestParam(value = "machine", required = false) Long machineId,
                                @RequestParam(value = "employee", required = false) Long employeeId,
-                               @RequestParam(value = "quantity", required = false) Float quantity) {
+                               @RequestParam(value = "quantity", required = false) Double quantity) {
 
         Employee employee = employeeService.getEmployeeById(employeeId);
         Machine machine = machineService.getMachineById(machineId);
