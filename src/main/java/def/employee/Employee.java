@@ -14,6 +14,8 @@ public class Employee {
     @Column(name = "employee_surname")
     private String surname;
 
+    @Column(name = "employee_work_time")
+    private Long employeeWorkTime = 0L;
 
     public Employee(String name, String surname) {
         this.name = name;
@@ -35,8 +37,16 @@ public class Employee {
         return surname;
     }
 
+    public Long getEmployeeWorkTime() {
+        return employeeWorkTime;
+    }
+
+    public void setEmployeeWorkTime(Long employeeWorkTime) {
+        this.employeeWorkTime = employeeWorkTime;
+    }
+
     @Override
     public String toString() {
-        return id +". "+name+" "+surname;
+        return id + ". " + name + " " + surname;
     }
 }

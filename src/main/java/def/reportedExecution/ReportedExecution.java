@@ -2,6 +2,7 @@ package def.reportedExecution;
 
 import def.employee.Employee;
 import def.machine.Machine;
+import def.operation.Operation;
 import jakarta.persistence.*;
 
 import java.util.Date;
@@ -25,14 +26,19 @@ public class ReportedExecution {
     @JoinColumn(name = "machine_id")
     private Machine machine;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "operations_id")
+    private Operation operation;
+
     @Column(name = "reported_execution_date")
     private Date date;
 
-    public ReportedExecution(Double quantity, Employee employee, Machine machine) {
+    public ReportedExecution(Double quantity, Employee employee, Machine machine,Operation operation) {
         this.quantity = quantity;
         this.employee = employee;
         this.machine = machine;
         this.date = new Date();
+        this.operation = operation;
     }
 
     public ReportedExecution() {

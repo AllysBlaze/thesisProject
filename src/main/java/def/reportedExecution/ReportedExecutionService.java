@@ -11,15 +11,15 @@ public class ReportedExecutionService {
     @Autowired
     private ReportedExecutionRepository reportedExecutionRepository;
 
-    public List<ReportedExecution> getAllReportedExecutions() {
+    public List<ReportedExecution> getAll() {
         return this.reportedExecutionRepository.findAll();
     }
 
-    public ReportedExecution getReportedExecutionById(Long id) {
+    public ReportedExecution getById(Long id) {
         return this.reportedExecutionRepository.findById(id).get();
     }
 
-    public ReportedExecution saveReportedExecution(ReportedExecution reportedExecution) {
+    public ReportedExecution save(ReportedExecution reportedExecution) {
         return this.reportedExecutionRepository.save(reportedExecution);
     }
 }

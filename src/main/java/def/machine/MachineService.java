@@ -10,15 +10,15 @@ public class MachineService {
     @Autowired
     private MachineRepository machineRepository;
 
-    public List<Machine> getAllMachines() {
+    public List<Machine> getAll() {
         return this.machineRepository.findAll();
     }
 
-    public Machine getMachineById(Long id) {
+    public Machine getById(Long id) {
         return this.machineRepository.findById(id).get();
     }
 
-    public Machine saveMachine(Machine machine) {
+    public Machine save(Machine machine) {
         return this.machineRepository.save(machine);
     }
 }

@@ -2,6 +2,7 @@ package def;
 
 import def.employee.Employee;
 import def.machine.Machine;
+import def.operation.Operation;
 import def.reportedExecution.ReportedExecution;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +16,7 @@ class ReportedExecutionTest {
     void getQuantity() {
         Machine machine = new Machine("name");
         Employee employee = new Employee();
-        ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine);
+        ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine, new Operation());
         assertEquals(11, reportedExecution.getQuantity(), 0);
     }
 
@@ -23,7 +24,7 @@ class ReportedExecutionTest {
     void getEmployee() {
         Machine machine = new Machine("name");
         Employee employee = new Employee();
-        ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine);
+        ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine, new Operation());
         assertEquals(employee.getId(), reportedExecution.getEmployee().getId(), 0);
     }
 
@@ -31,7 +32,7 @@ class ReportedExecutionTest {
     void getMachine() {
         Machine machine = new Machine("name");
         Employee employee = new Employee();
-        ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine);
+        ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine, new Operation());
         assertEquals(machine.getId(), reportedExecution.getMachine().getId(), 0);
     }
 
@@ -39,7 +40,7 @@ class ReportedExecutionTest {
     void getDate() {
         Machine machine = new Machine("name");
         Employee employee = new Employee();
-        ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine);
+        ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine, new Operation());
         assertEquals(new Date(), reportedExecution.getDate());
     }
 
@@ -47,7 +48,7 @@ class ReportedExecutionTest {
     void testToString() {
         Machine machine = new Machine("name");
         Employee employee = new Employee();
-        ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine);
+        ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine, new Operation());
         assertEquals(machine + ", " + reportedExecution.getDate(), reportedExecution.toString());
     }
 }

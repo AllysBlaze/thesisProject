@@ -4,6 +4,7 @@ import def.employee.Employee;
 import def.employee.EmployeeService;
 import def.machine.Machine;
 import def.machine.MachineService;
+import def.operation.Operation;
 import def.reportedExecution.ReportedExecution;
 import def.reportedExecution.ReportedExecutionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,7 +27,7 @@ public class Controller {
 
     @GetMapping("/")
     public String index(Model model) {
-        model.addAttribute("reportedExecutions", reportedExecutionService.getAllReportedExecutions());
+        model.addAttribute("reportedExecutions", reportedExecutionService.getAll());
         return "index";
     }
 
@@ -36,7 +37,7 @@ public class Controller {
         if (fromIndex == null || !fromIndex) {
             return "redirect:";
         }
-        model.addAttribute("employees", employeeService.getAllEmployees());
+        model.addAttribute("employees", employeeService.getAll());
         return "employees";
     }
 
@@ -47,7 +48,7 @@ public class Controller {
             return "redirect:";
         }
         model.addAttribute("employee", employeeId);
-        model.addAttribute("machines", machineService.getAllMachines());
+        model.addAttribute("machines", machineService.getAll());
         return "machines";
     }
 
@@ -68,16 +69,16 @@ public class Controller {
                                @RequestParam(value = "employee", required = false) Long employeeId,
                                @RequestParam(value = "quantity", required = false) Double quantity) {
 
-        Employee employee = employeeService.getEmployeeById(employeeId);
-        Machine machine = machineService.getMachineById(machineId);
-        reportedExecutionService.saveReportedExecution(new ReportedExecution(quantity, employee, machine));
+        Employee employee = employeeService.getById(employeeId);
+        Machine machine = machineService.getById(machineId);
+        reportedExecutionService.save(new ReportedExecution(quantity, employee, machine,new Operation()));
         return "redirect:";
     }
 
     @GetMapping("/reportedExecution")
     public String reportedExecution(@RequestParam(value = "re", required = false) Long reportedExecutionId,
                                     Model model) {
-        ReportedExecution reportedExecution = reportedExecutionService.getReportedExecutionById(reportedExecutionId);
+        ReportedExecution reportedExecution = reportedExecutionService.getById(reportedExecutionId);
         model.addAttribute("reportedExecution", reportedExecution);
         return "reportedExecution";
     }

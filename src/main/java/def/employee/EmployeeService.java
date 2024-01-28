@@ -10,15 +10,15 @@ public class EmployeeService {
     @Autowired
     private EmployeeRepository employeeRepository;
 
-    public List<Employee> getAllEmployees() {
+    public List<Employee> getAll() {
         return employeeRepository.findAll();
     }
 
-    public Employee getEmployeeById(Long id) {
+    public Employee getById(Long id) {
         return this.employeeRepository.findById(id).get();
     }
 
-    public Employee saveEmployee(Employee employee) {
+    public Employee save(Employee employee) {
         return this.employeeRepository.save(employee);
     }
 }
