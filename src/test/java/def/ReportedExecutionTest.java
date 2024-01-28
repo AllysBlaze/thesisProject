@@ -48,6 +48,6 @@ class ReportedExecutionTest {
         Machine machine = new Machine("name");
         Employee employee = new Employee();
         ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine);
-        assertEquals(machine + " " + reportedExecution.getDate(), reportedExecution.toString());
+        assertEquals(machine + ", " + reportedExecution.getDate(), reportedExecution.toString());
     }
 }
