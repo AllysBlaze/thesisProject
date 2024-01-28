@@ -1,7 +1,8 @@
-package def.reportedExecution;
+package def;
 
 import def.employee.Employee;
 import def.machine.Machine;
+import def.reportedExecution.ReportedExecution;
 import org.junit.jupiter.api.Test;
 
 import java.util.Date;
