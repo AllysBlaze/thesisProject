@@ -7,7 +7,7 @@ trigger:
 - master
 
 schedules:
-- cron: "0 2 * * 1-7"
+- cron: '0 2 * * 1-7'
   displayName:  Build
   branches:
     include:
