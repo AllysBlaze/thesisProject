@@ -7,13 +7,13 @@ trigger:
 - master
 
 schedules:
-- cron: "0 2 * * 1-7"
-  displayName:  Build
-  branches:
-    include:
-    - master
-  always: true
-
+  - cron: "0 0,6,12,18 * * *"
+    displayName: "pipeline cron test"
+    branches:
+      include: 
+      - master
+    always: true
+    
 pool:
   vmImage: ubuntu-latest
 
