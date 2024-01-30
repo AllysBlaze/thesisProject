@@ -18,6 +18,10 @@ public class MachineService {
         return this.machineRepository.findById(id).get();
     }
 
+    public Machine createAndSave(String name) {
+        Machine machine = new Machine(name);
+        return this.save(machine);
+    }
     public Machine save(Machine machine) {
         return this.machineRepository.save(machine);
     }

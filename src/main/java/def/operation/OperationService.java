@@ -1,5 +1,6 @@
 package def.operation;
 
+import def.machine.Machine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,6 +17,10 @@ public class OperationService {
 
     public Operation getById(Long id) {
         return this.operationRepository.findById(id).get();
+    }
+
+    public Operation createAndSave(String name, Machine machine, Double plannedQuantity) {
+        return this.operationRepository.save(new Operation(name, machine, plannedQuantity));
     }
 
     public Operation save(Operation operation) {

@@ -22,6 +22,12 @@ public class Employee {
         this.surname = surname;
     }
 
+    public Employee(Long id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
     public Employee() {
     }
 

@@ -18,6 +18,10 @@ public class EmployeeService {
         return this.employeeRepository.findById(id).get();
     }
 
+    public Employee createAndSave(String name, String surname) {
+        return this.employeeRepository.save(new Employee(name, surname));
+    }
+
     public Employee save(Employee employee) {
         return this.employeeRepository.save(employee);
     }

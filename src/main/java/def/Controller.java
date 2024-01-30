@@ -71,7 +71,7 @@ public class Controller {
 
         Employee employee = employeeService.getById(employeeId);
         Machine machine = machineService.getById(machineId);
-        reportedExecutionService.save(new ReportedExecution(quantity, employee, machine,new Operation()));
+        reportedExecutionService.save(new ReportedExecution(quantity, employee, machine, new Operation()));
         return "redirect:";
     }
 

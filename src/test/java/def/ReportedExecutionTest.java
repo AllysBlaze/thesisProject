@@ -23,14 +23,14 @@ class ReportedExecutionTest {
     @Test
     void getEmployee() {
         Machine machine = new Machine("name");
-        Employee employee = new Employee();
+        Employee employee = new Employee(4L,"name", "name");
         ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine, new Operation());
         assertEquals(employee.getId(), reportedExecution.getEmployee().getId(), 0);
     }
 
     @Test
     void getMachine() {
-        Machine machine = new Machine("name");
+        Machine machine = new Machine(44L,"name");
         Employee employee = new Employee();
         ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine, new Operation());
         assertEquals(machine.getId(), reportedExecution.getMachine().getId(), 0);

@@ -6,14 +6,18 @@ import jakarta.persistence.*;
 @Table(name = "machine")
 public class Machine {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "machine_id")
     private Long id;
     @Column(name = "machine_name")
     private String name;
 
-
     public Machine(String name) {
+        this.name = name;
+    }
+
+    public Machine(Long id, String name) {
+        this.id = id;
         this.name = name;
     }
 
