@@ -19,6 +19,10 @@ public class Operation {
     @JoinColumn(name = "machine_id")
     private Machine machine;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "operation_status")
+    private OperationStatus operationStatus;
+
     @Column(name = "operation_planned_quantity")
     private Double plannedQuantity;
 
@@ -38,6 +42,15 @@ public class Operation {
         this.name = name;
         this.machine = machine;
         this.plannedQuantity = plannedQuantity;
+        operationStatus = OperationStatus.published;
+    }
+
+    public Operation(Long id, String name, Machine machine, Double plannedQuantity) {
+        this.id = id;
+        this.name = name;
+        this.machine = machine;
+        this.plannedQuantity = plannedQuantity;
+        operationStatus = OperationStatus.published;
     }
 
     public Operation() {
@@ -100,4 +113,11 @@ public class Operation {
         return machine.toString() + ", " + name + ", " + id;
     }
 
+    public OperationStatus getOperationStatus() {
+        return operationStatus;
+    }
+
+    public void setOperationStatus(OperationStatus operationStatus) {
+        this.operationStatus = operationStatus;
+    }
 }

@@ -30,13 +30,25 @@ public class ReportedExecution {
     @JoinColumn(name = "operations_id")
     private Operation operation;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name="reported_execution_action")
+    private ReportedExecutionAction reportedExecutionAction;
+
     @Column(name = "reported_execution_date")
     private Date date;
 
-    public ReportedExecution(Double quantity, Employee employee, Machine machine,Operation operation) {
+    public ReportedExecution(Double quantity, Employee employee, Machine machine, Operation operation) {
         this.quantity = quantity;
         this.employee = employee;
         this.machine = machine;
+        this.date = new Date();
+        this.operation = operation;    }
+
+    public ReportedExecution(Double quantity, Employee employee, Machine machine, Operation operation, ReportedExecutionAction reportedExecutionAction) {
+        this.quantity = quantity;
+        this.employee = employee;
+        this.machine = machine;
+        this.reportedExecutionAction = reportedExecutionAction;
         this.date = new Date();
         this.operation = operation;
     }
@@ -67,5 +79,17 @@ public class ReportedExecution {
     @Override
     public String toString() {
         return machine + ", " + date;
+    }
+
+    public ReportedExecutionAction getReportedExecutionAction() {
+        return reportedExecutionAction;
+    }
+
+    public void setReportedExecutionAction(ReportedExecutionAction reportedExecutionAction) {
+        this.reportedExecutionAction = reportedExecutionAction;
+    }
+
+    public Operation getOperation() {
+        return operation;
     }
 }

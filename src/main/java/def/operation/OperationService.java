@@ -1,6 +1,7 @@
 package def.operation;
 
 import def.machine.Machine;
+import def.mainLogic.CalculateProducedQuantity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,6 +9,7 @@ import java.util.List;
 
 @Service
 public class OperationService {
+
     @Autowired
     private OperationRepository operationRepository;
 
@@ -24,6 +26,8 @@ public class OperationService {
     }
 
     public Operation save(Operation operation) {
+        operation.setNotifiedQuantity(CalculateProducedQuantity.calculateProducedQuantity(operation));
+        operation.setPercentageRealized();
         return this.operationRepository.save(operation);
     }
 }
