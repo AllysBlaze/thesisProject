@@ -16,6 +16,7 @@ public class OperationLifeCycleTest {
 
         StartOperationLogic startOperationLogic = new StartOperationLogic();
         startOperationLogic.startOperation(employee,operation);
+        assertEquals(1,2);
     }
 
 }
