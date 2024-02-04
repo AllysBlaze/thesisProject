@@ -19,9 +19,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: gitmirror@0
-  inputs:
-    GitRepoUrl: 'https://github.com/AllysBlaze/thesisProject'
 - task: Maven@3
   inputs:
     mavenPomFile: 'pom.xml'
