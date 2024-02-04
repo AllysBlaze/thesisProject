@@ -5,11 +5,13 @@ import def.machine.Machine;
 import def.operation.Operation;
 import def.reportedExecution.ReportedExecution;
 import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@SpringBootTest
 class ReportedExecutionTest {
 
     @Test
@@ -23,14 +25,14 @@ class ReportedExecutionTest {
     @Test
     void getEmployee() {
         Machine machine = new Machine("name");
-        Employee employee = new Employee(4L,"name", "name");
+        Employee employee = new Employee(4L, "name", "name");
         ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine, new Operation());
         assertEquals(employee.getId(), reportedExecution.getEmployee().getId(), 0);
     }
 
     @Test
     void getMachine() {
-        Machine machine = new Machine(44L,"name");
+        Machine machine = new Machine(44L, "name");
         Employee employee = new Employee();
         ReportedExecution reportedExecution = new ReportedExecution(11.0, employee, machine, new Operation());
         assertEquals(machine.getId(), reportedExecution.getMachine().getId(), 0);
