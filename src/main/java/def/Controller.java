@@ -6,6 +6,7 @@ import def.machine.Machine;
 import def.machine.MachineService;
 import def.operation.Operation;
 import def.reportedExecution.ReportedExecution;
+import def.reportedExecution.ReportedExecutionAction;
 import def.reportedExecution.ReportedExecutionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
@@ -71,7 +72,11 @@ public class Controller {
 
         Employee employee = employeeService.getById(employeeId);
         Machine machine = machineService.getById(machineId);
-        reportedExecutionService.save(new ReportedExecution(quantity, employee, machine, new Operation()));
+        reportedExecutionService.save(new ReportedExecution(quantity, employee, machine, new Operation(), ReportedExecutionAction.quantityNotification));
+        employee.setEmployeeProducedQuantity(quantity);
+        employeeService.save(employee);
+        machine.setProducedQuantity(quantity);
+        machineService.save(machine);
         return "redirect:";
     }
 
@@ -83,4 +88,26 @@ public class Controller {
         return "reportedExecution";
     }
 
+    @GetMapping("/newEmployee")
+    public String newEmployee(Model model) {
+        return "newEmployee";
+    }
+
+    @PostMapping("/newEmployee")
+    public String newEmployee(@RequestParam(value = "name", required = true) String name,
+                              @RequestParam(value = "surname", required = true) String surname) {
+        employeeService.save(new Employee(name, surname));
+        return "redirect:";
+    }
+
+    @GetMapping("/newMachine")
+    public String newMachine(Model model) {
+        return "newMachine";
+    }
+
+    @PostMapping("/newMachine")
+    public String newMachine(@RequestParam(value = "name", required = true) String name) {
+        machineService.save(new Machine(name));
+        return "redirect:";
+    }
 }

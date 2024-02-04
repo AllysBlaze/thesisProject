@@ -5,8 +5,6 @@ import def.employee.Employee;
 import def.employee.EmployeeService;
 import def.machine.Machine;
 import def.machine.MachineService;
-import def.operation.Operation;
-import def.operation.OperationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,8 +16,7 @@ public class MyApp implements CommandLineRunner {
     private EmployeeService employeeService;
     @Autowired
     private MachineService machineService;
-    @Autowired
-    private OperationService operationService;
+
 
     public static void main(String[] args) {
         SpringApplication.run(MyApp.class, args);
@@ -33,10 +30,10 @@ public class MyApp implements CommandLineRunner {
         machineService.save(cnc01);
         Machine cnc02 = new Machine("cnc02");
         machineService.save(cnc02);
-
-        operationService.save(new Operation("op1",cnc02,11d));
-        operationService.save(new Operation("op2",cnc02,15d));
-        operationService.save(new Operation("op3",cnc01,22d));
+//
+//        operationService.save(new Operation("op1",cnc02,11d));
+//        operationService.save(new Operation("op2",cnc02,15d));
+//        operationService.save(new Operation("op3",cnc01,22d));
 
     }
 }

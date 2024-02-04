@@ -11,6 +11,8 @@ public class Machine {
     private Long id;
     @Column(name = "machine_name")
     private String name;
+    @Column(name = "machine_producedQuantity")
+    private Double producedQuantity = 0.0;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "machine_status")
@@ -48,5 +50,13 @@ public class Machine {
 
     public void setMachineStatus(MachineStatus machineStatus) {
         this.machineStatus = machineStatus;
+    }
+
+    public Double getProducedQuantity() {
+        return producedQuantity;
+    }
+
+    public void setProducedQuantity(Double producedQuantity) {
+        this.producedQuantity = this.producedQuantity + producedQuantity;
     }
 }

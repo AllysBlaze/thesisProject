@@ -101,7 +101,7 @@ public class Operation {
     }
 
     public void setPercentageRealized() {
-        if (plannedQuantity != 0) {
+        if (plannedQuantity != 0 && notifiedQuantity != 0) {
             percentageRealized = notifiedQuantity / plannedQuantity * 100;
         } else {
             percentageRealized = 0d;

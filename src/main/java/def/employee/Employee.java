@@ -14,8 +14,8 @@ public class Employee {
     @Column(name = "employee_surname")
     private String surname;
 
-    @Column(name = "employee_work_time")
-    private Long employeeWorkTime = 0L;
+    @Column(name = "employee_produced_quantity")
+    private Double employeeProducedQuantity = 0.0;
 
     public Employee(String name, String surname) {
         this.name = name;
@@ -43,12 +43,12 @@ public class Employee {
         return surname;
     }
 
-    public Long getEmployeeWorkTime() {
-        return employeeWorkTime;
+    public Double getEmployeeProducedQuantity() {
+        return employeeProducedQuantity;
     }
 
-    public void setEmployeeWorkTime(Long employeeWorkTime) {
-        this.employeeWorkTime = employeeWorkTime;
+    public void setEmployeeProducedQuantity(Double employeeProducedQuantity) {
+        this.employeeProducedQuantity = this.employeeProducedQuantity + employeeProducedQuantity;
     }
 
     @Override
