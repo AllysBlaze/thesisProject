@@ -2,18 +2,18 @@
 <html xmlns:th="https://www.thymeleaf.org">
 <head lang="en">
     <meta charset="UTF-8"/>
-
+<title>Terminal</title>
     <link rel="stylesheet" href="/main.css"/>
 </head>
 <body>
 <form method="GET" action="/employees">
-    <button type="submit" th:name="fromIndex" th:value="true">Zgłoszenie ilości</button>
+    <button id="quantityNotification" type="submit" th:name="fromIndex" th:value="true">Zgłoszenie ilości</button>
 </form>
 <form method="GET" action="/newEmployee">
-    <button type="submit">Nowy pracownik</button>
+    <button id="newEmployee" type="submit">Nowy pracownik</button>
 </form>
 <form method="GET" action="/newMachine">
-    <button type="submit">Nowa maszyna</button>
+    <button id="newMachine"  type="submit">Nowa maszyna</button>
 </form>
 
 <br>
