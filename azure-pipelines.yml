@@ -3,12 +3,6 @@
 # Build your Java project and run tests with Apache Maven.
 # Add steps that analyze code, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/java
-
-coverage:
-  status:           #Code coverage status will be posted to pull requests based on targets defined below.
-    comments: on    #Off by default. When on, details about coverage for each file changed will be posted as a pull request comment. 
-    diff:           #diff coverage is code coverage only for the lines changed in a pull request.
-      target: 50%   #set this to a desired %. Default is 70%
       
 trigger:
 - master
